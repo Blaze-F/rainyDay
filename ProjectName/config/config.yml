@@ -1,0 +1,15 @@
+databases:
+  host: "127.0.0.1"
+  port: 3306
+  database: "account_book"
+  username: "root"
+  password: "test1234"
+  timezone: "+09:00"
+
+secrets:
+  django: "django-insecure-gk5c*a2x#s$rgv38mqov@ip#uc!8=#a2rzt5$@nasae*-lc&e#"
+
+token:
+  scret: "236979CB6F1AD6B6A6184A31E6BE37DB3818CC36873E26235DD67DCFE4041492"
+  referesh_expire_day: 7
+  expire_sec: 3600
