@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-1$7&=eq3x2t9s0kz@4d@otcf1%6-ui8tz9z9qlcz10@#p^@10d"
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "user.apps.UserConfig",
+    "find_and_search.apps.FindAndSearchConfig",
     "drf_yasg",
 ]
 
@@ -53,7 +54,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "ProjectName.urls"
+ROOT_URLCONF = "rainy_day.urls"
 
 TEMPLATES = [
     {
@@ -71,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "ProjectName.wsgi.application"
+WSGI_APPLICATION = "rainy_day.wsgi.application"
 
 
 # Database
@@ -79,8 +80,12 @@ WSGI_APPLICATION = "ProjectName.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": config.databases["database"],
+        "USER": config.databases["username"],
+        "PASSWORD": config.databases["password"],
+        "HOST": config.databases["host"],
+        "PORT": config.databases["port"],
     }
 }
 
@@ -126,6 +131,12 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# JWT SECRET
+JWT_KEY = config.token["scret"]
+JWT_EXPIRE_TIME = config.token["expire_sec"]
+# REFRESH_TOKEN_LIFETIME: timedelta(days=config.token["referesh_expire_day"])
+
+#Swagger 인증절차
 SWAGGER_SETTINGS = {
    'USE_SESSION_AUTH': False,
       'SECURITY_DEFINITIONS': {
@@ -138,15 +149,4 @@ SWAGGER_SETTINGS = {
             'in': 'header'
       }
    }
-}
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": config.databases["database"],
-        "USER": config.databases["username"],
-        "PASSWORD": config.databases["password"],
-        "HOST": config.databases["host"],
-        "PORT": config.databases["port"],
-    }
 }
