@@ -40,7 +40,7 @@ def login(request):
     responses={201: UserSignupSerializer},
 )
 @api_view(["POST"])
-# @execption_hanlder()
+@execption_hanlder()
 @parser_classes([JSONParser])
 def signup(request):
     params = request.data

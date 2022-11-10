@@ -36,7 +36,7 @@ def live_data_get(request):
 
 @swagger_auto_schema(method="get", operation_description="로그인이 필수입니다. 헤더에 토큰을 넣어주세요.")
 @api_view(["GET"])
-# @execption_hanlder()
+@execption_hanlder()
 @must_be_user()
 @parser_classes([JSONParser])
 def live_data_get_for_user(request):
