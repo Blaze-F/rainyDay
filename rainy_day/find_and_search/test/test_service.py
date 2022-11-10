@@ -27,7 +27,7 @@ class TestService:
         # when
         res = self.service.get_amount_of_gauge(district_name=district_name)
         # then
-        assert type(res) == int
+        assert isinstance(res, int)
 
     def test_get_avg_of_rainflalls_in_day(self):
         # given
@@ -37,7 +37,15 @@ class TestService:
             district_name=district_name, amount_of_gauge=2
         )
         # then
-        assert type(res) == float
+        assert isinstance(res, float)
+
+    def test_request_water_level_and_day_avg_rainfall(self):
+        # given
+        district_name = "강남구"
+        # when
+        res = self.service.request_water_level_and_day_avg_rainfall(district_name=district_name)
+        # then
+        assert isinstance(res, dict)
 
 
 class TestServiceErrorHandle:
@@ -70,3 +78,11 @@ class TestServiceErrorHandle:
             res = self.service.get_avg_of_rainflalls_in_day(
                 district_name=district_name, amount_of_gauge=2
             )
+
+    def test_error_handle_request_water_level_and_day_avg_rainfall(self):
+
+        # given
+        district_name = "강남구"
+        # when, #then
+        with pytest.raises(NotFoundError):
+            res = self.service.request_water_level_and_day_avg_rainfall(district_name=district_name)

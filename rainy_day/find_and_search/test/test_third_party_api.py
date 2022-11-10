@@ -5,7 +5,7 @@ from rainy_day.enums import DistrictInSeoul
 
 
 class ThirdApiTest(TestCase):
-    """서울시 api 실제 요청과 응답을 테스트합니다."""
+    """서울시 api 실제 요청과 응답을 테스트합니다. 본 테스트 파일은 격리되어있지 않습니다."""
 
     def setUp(self) -> None:
         self.third_api_controller = ThirdApiController()

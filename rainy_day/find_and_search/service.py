@@ -26,7 +26,7 @@ class FindAndSearchService:
 
         return amount_of_gauge
 
-    def get_avg_of_rainflalls_in_day(self, district_name: str, amount_of_gauge: int) -> int:
+    def get_avg_of_rainflalls_in_day(self, district_name: str, amount_of_gauge: int) -> float:
         """강우량계 개수 * 하루치(상수 : config에 있음) 만큼의 요청을 보내어서 평균을 산출"""
         DAY_DIVIDE_BY_I0_MIN = Config.DAY_DIVIDE_BY_10_MIN  # defalut : 144
 
