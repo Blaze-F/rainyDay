@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ""
+SECRET_KEY = config.secrets["django"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -132,7 +132,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # JWT SECRET
-JWT_KEY = config.token["scret"]
+JWT_KEY = config.token["secret"]
 JWT_EXPIRE_TIME = config.token["expire_sec"]
 # REFRESH_TOKEN_LIFETIME: timedelta(days=config.token["referesh_expire_day"])
 

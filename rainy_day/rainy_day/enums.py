@@ -1,37 +1,39 @@
-from enum import Enum
-from enum import auto
-from rainy_day.rainy_day.enums import BaseEnum
+from enum import Enum, unique
 
 class BaseEnum(Enum):
     @classmethod
     def has_value(cls, value):
         return value in cls._value2member_map_
 
-
+@unique
 class DistrictInSeoul(BaseEnum): 
-    """회원가입시, 검색시 사용하는 지역 열거"""
-    종로구 = auto()
-    중구 = auto()
-    용산구 = auto()
-    성동구 = auto()
-    광진구 = auto()
-    동대문구 = auto()
-    중랑구 = auto()
-    성북구 = auto()
-    강북구 = auto()
-    도봉구 = auto()
-    노원구 = auto()
-    은평구 = auto()
-    서대문구 = auto()
-    마포구 = auto()
-    양천구 = auto()
-    강서구 = auto()
-    구로구 = auto()
-    금천구 = auto()
-    영등포구 = auto()
-    동작구 = auto()
-    관악구 = auto()
-    서초구 = auto()
-    강남구 = auto()
-    송파구 = auto()
-    강동구 = auto()
+    """회원가입시, 검색시 사용하는 지역 열거, 구분명, 구분코드 순서입니다."""
+    종로구 = 1
+    중구 = 	2
+    용산구 = 3
+    성동구 = 4
+    광진구 = 5
+    동대문구 = 6
+    중랑구 = 7
+    성북구 = 8
+    강북구 = 9
+    도봉구 = 10
+    노원구 = 11
+    은평구 = 12
+    서대문구 = 13
+    마포구 = 14
+    양천구 = 15
+    강서구 = 16
+    구로구 = 17
+    금천구 = 18
+    영등포구 = 19
+    동작구 = 20
+    관악구 = 21
+    서초구 = 22
+    강남구 = 23
+    송파구 = 24
+    강동구 = 25
+
+
+
+

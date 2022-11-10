@@ -1,7 +1,7 @@
 databases:
-  host: "127.0.0.1"
+  host: "localhost"
   port: 3306
-  database: "account_book"
+  database: "rainy_day"
   username: "root"
   password: "test1234"
   timezone: "+09:00"
@@ -10,6 +10,7 @@ secrets:
   django: "django-insecure-1$7&=eq3x2t9s0kz@4d@otcf1%6-ui8tz9z9qlcz10@#p^@10d"
 
 token:
-  scret: "236979CB6F1AD6B6A6184A31E6BE37DB3818CC36873E26235DD67DCFE4041492"
-  referesh_expire_day: 7
+  secret: "236979CB6F1AD6B6A6184A31E6BE37DB3818CC36873E26235DD67DCFE4041492"
   expire_sec: 36000
+
+seoul_open_api_key: "41435162496465643135454f4d4f6a"

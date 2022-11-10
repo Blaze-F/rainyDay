@@ -27,9 +27,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUserModel
         fields = "__all__"
 
+
 class LoginResponseSchema(serializers.Serializer):
     access = serializers.CharField()
-    
+
+
 class UserSignUpSchema(serializers.Serializer):
     """
     user 회원가입 기능 요청 정의 입니다.
@@ -38,6 +40,8 @@ class UserSignUpSchema(serializers.Serializer):
     name = serializers.CharField(max_length=20, allow_null=False)
     email = serializers.CharField(max_length=100, allow_null=False)
     password = serializers.CharField(max_length=255, allow_null=False)
+    district = serializers.CharField(max_length=20, allow_null=False)
+
 
 class UserLoginSchema(serializers.Serializer):
     """

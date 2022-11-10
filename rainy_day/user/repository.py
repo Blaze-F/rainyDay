@@ -22,12 +22,13 @@ class UserRepo(AbstractUserRepo):
         except self.model.DoesNotExist:
             raise NotFoundError
 
-    def create(self, name: str, email: str, password: str):
+    def create(self, name: str, email: str, password: str, district: str):
         serializer = self.serializer(
             data={
                 "name": name,
                 "email": email,
                 "password": password,
+                "district": district,
             }
         )
         serializer.is_valid(raise_exception=True)

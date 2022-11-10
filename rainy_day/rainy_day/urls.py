@@ -21,11 +21,10 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Account_book_service_API",
+        title="Rainfall_service_API",
         default_version="v1",
         description="NONE",
-        terms_of_service="https://github.com/Blaze-F/account-book-service",
-        description = "줄줄이 써져있는 설명들",
+        terms_of_service="https://github.com/Blaze-F",
         contact=openapi.Contact(email="daeda766@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
@@ -36,7 +35,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("user.urls")),
-    path("", include("read_and_search.urls"))
+    path("", include("find_and_search.urls")),
     re_path(
         r"^swagger/$",
         schema_view.with_ui("swagger", cache_timeout=0),

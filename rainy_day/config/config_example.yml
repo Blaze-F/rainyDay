@@ -11,5 +11,7 @@ secrets:
 
 token:
   scret: "jwt secret"
-  referesh_expire_day: 7
   expire_sec: 3600
+
+seoul_open_api:
+  open_api_key: ""

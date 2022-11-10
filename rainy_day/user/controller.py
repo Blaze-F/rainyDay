@@ -7,14 +7,22 @@ from decorator.execption_handler import execption_hanlder
 
 from provider.auth_provider import AuthProvider
 from user.service import UserService
-from user.serializers import LoginResponseSchema, UserLoginSchema, UserSignUpSchema, UserSignupSerializer
+from user.serializers import (
+    LoginResponseSchema,
+    UserLoginSchema,
+    UserSignUpSchema,
+    UserSignupSerializer,
+)
 
 user_service = UserService()
 auth_provider = AuthProvider()
 
-@swagger_auto_schema(method="post",
-                     request_body=UserLoginSchema,operation_description="JWT 토큰이 반환됩니다. 헤더에 넣어주세요",
-    responses={200 : LoginResponseSchema}
+
+@swagger_auto_schema(
+    method="post",
+    request_body=UserLoginSchema,
+    operation_description="JWT 토큰이 반환됩니다. 헤더에 넣어주세요",
+    responses={200: LoginResponseSchema},
 )
 @api_view(["POST"])
 @execption_hanlder()
@@ -25,12 +33,14 @@ def login(request):
     auth_token = auth_provider.login(email, password)
     return JsonResponse(auth_token, status=status.HTTP_201_CREATED)
 
-@swagger_auto_schema(method="post",
+
+@swagger_auto_schema(
+    method="post",
     request_body=UserSignUpSchema,
     responses={201: UserSignupSerializer},
 )
 @api_view(["POST"])
-@execption_hanlder()
+# @execption_hanlder()
 @parser_classes([JSONParser])
 def signup(request):
     params = request.data

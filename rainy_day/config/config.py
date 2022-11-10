@@ -13,6 +13,8 @@ class Config:
     databases: dict = yaml_settings["databases"]
     secrets: dict = yaml_settings["secrets"]
     token: dict = yaml_settings["token"]
+    open_api_key: dict = yaml_settings["seoul_open_api_key"]
+    DAY_DIVIDE_BY_10_MIN = 144 #상수, 1row 당 10분으로 계산
 
 
 config = Config()
