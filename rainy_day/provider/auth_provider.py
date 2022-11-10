@@ -1,15 +1,10 @@
-from user.repository import UserRepo
-import jwt
-from django.conf import settings
-from exceptions import (
-    NotFoundError,
-    NotFoundUserError,
-    NotAuthorizedError,
-    TokenExpiredError,
-)
-
 from datetime import datetime
+
 import bcrypt
+from django.conf import settings
+
+from exceptions import NotAuthorizedError, NotFoundError, NotFoundUserError, TokenExpiredError
+from user.repository import UserRepo
 
 user_repo = UserRepo()
 
@@ -30,6 +25,7 @@ class AuthProvider:
 
     def _decode(self, token: str):
         decoded = jwt.decode(token, self.key, algorithms=["HS256"])
+
         if decoded["exp"] <= self._get_curr_sec():
             raise TokenExpiredError
         else:
@@ -66,6 +62,7 @@ class AuthProvider:
 
     def check_auth(self, token: str) -> bool:
         decoded = self._decode(token)
+
         try:
             user = user_repo.get(decoded["id"])
             if user:
@@ -77,5 +74,4 @@ class AuthProvider:
                 raise NotAuthorizedError
 
 
- #TODO Redis를 통한 로그아웃 구현
 auth_provider = AuthProvider()
