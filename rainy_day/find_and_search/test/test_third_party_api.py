@@ -16,7 +16,7 @@ class ThirdApiTest(TestCase):
         # when
         res = self.third_api_controller.request_drain_pipe_water_level(district_name=input)
         # then
-        assert type(res) == list
+        assert isinstance(res, list)
 
     def test_rainfall_request(self):
         # given
@@ -26,4 +26,4 @@ class ThirdApiTest(TestCase):
             district_name=input, row_amount=1
         )
         # then
-        assert type(res) == dict
+        assert isinstance(res, dict)

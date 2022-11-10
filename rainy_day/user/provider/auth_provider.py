@@ -1,7 +1,7 @@
 from datetime import datetime
-
 import bcrypt
 from django.conf import settings
+import jwt
 
 from exceptions import NotAuthorizedError, NotFoundError, NotFoundUserError, TokenExpiredError
 from user.repository import UserRepo

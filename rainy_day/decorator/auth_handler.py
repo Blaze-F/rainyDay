@@ -1,5 +1,5 @@
 from functools import wraps
-from provider.auth_provider import auth_provider
+from user.provider.auth_provider import auth_provider
 from exceptions import NotAuthorizedError
 from rest_framework.views import APIView
 
@@ -19,4 +19,3 @@ def must_be_user():
         return _wrapped_view
 
     return decorator
-
