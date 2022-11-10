@@ -10,8 +10,8 @@ python manage.py migrate
 python -m manage.py runserver
 ```
 ## TestCoverage
-2022-11-10 현재 90%입니다.
-![image](https://user-images.githubusercontent.com/101803254/201133572-c5594308-2bf2-4405-8287-ed0e11046e58.png)
+2022-11-10 현재 91.6%입니다.
+![image](https://user-images.githubusercontent.com/101803254/201149263-db04eda1-fed1-47a5-b164-0659c4c20f8b.png)
 
 확인방법
 ```
