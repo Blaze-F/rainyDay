@@ -10,8 +10,8 @@ python manage.py migrate
 python -m manage.py runserver
 ```
 ## TestCoverage
-2022-11-10 현재 90%입니다.
-![image](https://user-images.githubusercontent.com/101803254/201133572-c5594308-2bf2-4405-8287-ed0e11046e58.png)
+2022-11-10 현재 91.6%입니다.
+![image](https://user-images.githubusercontent.com/101803254/201149263-db04eda1-fed1-47a5-b164-0659c4c20f8b.png)
 
 확인방법
 ```
@@ -95,6 +95,8 @@ response {access:"token"}
 /get/?district_name=용산구
 
 하수관로 수위는 현재 수위, 강수량은 24시간 누적 강수량의 강우량계별 평균입니다.
+
+다시말해, 강우량계 숫자 * 144(상수) 만큼의 요청을 보내 전부 합한뒤 강우량계 숫자로 다시 나눠서 산출합니다.
 
 ```python
 {
