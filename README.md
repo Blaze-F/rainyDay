@@ -9,6 +9,8 @@ python manage.py makemigrations
 python manage.py migrate
 python -m manage.py runserver
 ```
+
+
 ## TestCoverage
 2022-11-10 현재 91.6%입니다.
 ![image](https://user-images.githubusercontent.com/101803254/201149263-db04eda1-fed1-47a5-b164-0659c4c20f8b.png)
